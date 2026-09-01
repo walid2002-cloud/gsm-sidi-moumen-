@@ -6,6 +6,8 @@ import { LEVELS, subjectsForLevel, type Subject } from "@/lib/constants";
 import { Reveal } from "@/components/Reveal";
 import { useI18n } from "@/components/LanguageProvider";
 
+const BOOKING_WHATSAPP_NUMBER = "212708673799";
+
 const empty = {
   nom: "",
   prenom: "",
@@ -14,6 +16,27 @@ const empty = {
   whatsapp: "",
   message: "",
 };
+
+function buildBookingWhatsAppMessage(fields: {
+  prenom: string;
+  nom: string;
+  niveau: string;
+  matieres: string;
+  telephone: string;
+  whatsapp: string;
+  message: string;
+}) {
+  return [
+    "📚 Nouvelle demande – Semaine gratuite GSM Sidi Moumen",
+    "",
+    `👤 Élève : ${fields.prenom} ${fields.nom}`,
+    `🎓 Niveau : ${fields.niveau}`,
+    `📚 Matières souhaitées : ${fields.matieres}`,
+    `📞 Téléphone : ${fields.telephone}`,
+    `💬 WhatsApp : ${fields.whatsapp}`,
+    `📝 Message : ${fields.message}`,
+  ].join("\n");
+}
 
 const fieldClass =
   "w-full rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/15 dark:border-white/10 dark:bg-slate-900/70";
@@ -50,35 +73,51 @@ export function BookingForm() {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const niveauId = String(form.get("niveau") ?? "").trim();
-    const payload = {
-      nom: String(form.get("nom") ?? "").trim(),
-      prenom: String(form.get("prenom") ?? "").trim(),
-      niveau: t.level[niveauId as keyof typeof t.level] ?? niveauId,
-      matiere: matieres.map((key) => t.subject[key]),
-      telephone: String(form.get("telephone") ?? "").trim(),
-      whatsapp: String(form.get("whatsapp") ?? "").trim(),
-      message: String(form.get("message") ?? "").trim(),
-      source: "landing",
-    };
-    if (
-      !payload.nom ||
-      !payload.prenom ||
-      !payload.niveau ||
-      payload.matiere.length === 0 ||
-      !payload.telephone ||
-      !payload.whatsapp
-    ) {
+    const nom = String(form.get("nom") ?? "").trim();
+    const prenom = String(form.get("prenom") ?? "").trim();
+    const niveau = (t.level[niveauId as keyof typeof t.level] ?? niveauId).trim();
+    const selectedSubjects = matieres.map((key) => t.subject[key].trim()).filter(Boolean);
+    const telephone = String(form.get("telephone") ?? "").trim();
+    const whatsappSaisi = String(form.get("whatsapp") ?? "").trim();
+    const messageSaisi = String(form.get("message") ?? "").trim();
+
+    if (!nom || !prenom || !niveau || selectedSubjects.length === 0 || !telephone) {
       setError(t.form.error);
       return;
     }
+
+    const whatsapp = whatsappSaisi || telephone;
+    const message = messageSaisi || "Non précisé";
+    const text = buildBookingWhatsAppMessage({
+      prenom,
+      nom,
+      niveau,
+      matieres: selectedSubjects.join(", "),
+      telephone,
+      whatsapp,
+      message,
+    });
+    const whatsappUrl = `https://wa.me/${BOOKING_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
     setError("");
     setSuccess("");
+    window.open(whatsappUrl, "_blank");
+
     setSending(true);
     try {
       const res = await fetch("/api/reservation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          nom,
+          prenom,
+          niveau,
+          matiere: selectedSubjects,
+          telephone,
+          whatsapp,
+          message: messageSaisi,
+          source: "landing",
+        }),
       });
       const json = (await res.json()) as { success?: boolean; error?: string };
       if (!res.ok || !json.success) {
@@ -213,7 +252,6 @@ export function BookingForm() {
                   name="whatsapp"
                   type="tel"
                   inputMode="tel"
-                  required
                   value={data.whatsapp}
                   onChange={(e) => setData({ ...data, whatsapp: e.target.value })}
                   className={fieldClass}
