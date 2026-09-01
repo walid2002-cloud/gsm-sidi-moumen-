@@ -6,7 +6,7 @@ export const SITE = {
     "Accompagner chaque élève vers l'excellence grâce à une équipe de professeurs expérimentés.",
   phoneDisplay: "06 14 28 74 62",
   phoneTel: "+212614287462",
-  whatsapp: "212786713408",
+  whatsapp: "212708673799",
   instagram: "gsm_sidi_moumen",
   instagramUrl: "https://www.instagram.com/gsm_sidi_moumen",
   address: "Sidi Moumen Chraf près de l'établissement Al Wiam",

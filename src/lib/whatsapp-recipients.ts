@@ -1,2 +1,2 @@
 /** Numéros staff qui reçoivent la notification d'inscription. */
-export const whatsappRecipients = ["+212786713408"];
+export const whatsappRecipients = ["+212708673799"];
