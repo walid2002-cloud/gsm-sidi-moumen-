@@ -333,6 +333,16 @@ export function TeachersCarousel() {
                 name={teacher.name}
                 accent={teacher.accent}
                 photo={"photo" in teacher ? teacher.photo : undefined}
+                imageClassName={
+                  teacher.name === "Maître Mohssine" ||
+                  teacher.name === "Prof Saouri Fouad" ||
+                  teacher.name === "Prof Ayoub Ouatiki" ||
+                  teacher.name === "Prof Driss" ||
+                  teacher.name === "Prof Soultan" ||
+                  teacher.name === "Prof Rami"
+                    ? "object-[center_28%]"
+                    : undefined
+                }
               />
             </div>
             <div className="relative px-5 py-4">

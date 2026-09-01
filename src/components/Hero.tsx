@@ -105,7 +105,12 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.25 }}
           className="relative"
         >
-          <FloatingPortrait name="Maître Mohssine" photo={PHOTOS.founder} title={t.hero.director} />
+          <FloatingPortrait
+            name="Maître Mohssine"
+            photo={PHOTOS.founder}
+            title={t.hero.director}
+            imageClassName="object-[center_28%]"
+          />
         </motion.div>
       </div>
     </section>

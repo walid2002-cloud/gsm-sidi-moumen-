@@ -165,6 +165,7 @@ const fr = {
     "Prof Saouri Fouad": "Organisation et Comptabilité",
     "Prof Seddik": "SVT",
     "Prof Soultan": "Philosophie",
+    "Prof Rami": "Éducation islamique",
   },
   testimonial: {
     t1q: "Ma fille a repris confiance en maths en quelques semaines. L'ambiance est sérieuse, les professeurs vraiment à l'écoute.",
@@ -345,6 +346,7 @@ const darija = {
     "Prof Saouri Fouad": "التنظيم والمحاسبة",
     "Prof Seddik": "SVT",
     "Prof Soultan": "الفلسفة",
+    "Prof Rami": "التربية الإسلامية",
   },
   testimonial: {
     t1q: "بنتي رجعات واثقة فراسها فالرياضيات فأسابيع قلال. الأجواء جدّية والأساتذة كيصنتو مزيان.",

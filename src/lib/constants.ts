@@ -78,12 +78,13 @@ export const PHOTOS = {
   founder: "/images/maitre-mohssine.jpg",
   elboukhari: "/images/prof-elboukhari.jpg",
   manoub: "/images/prof-manoub.jpg",
-  ouatiki: "/images/prof-ayoub-ouatiki.jpg",
+  ouatiki: "/images/prof-ayoub-ouatiki-v2.jpg",
   haitam: "/images/prof-haitam-fanvaranta.jpg",
-  driss: "/images/prof-driss.jpg",
-  fouad: "/images/prof-saouri-fouad.jpg",
+  driss: "/images/prof-driss-v2.jpg",
+  fouad: "/images/prof-saouri-fouad-v2.jpg",
   seddik: "/images/prof-seddik.jpg",
-  soultan: "/images/prof-soultan.jpg",
+  soultan: "/images/prof-soultan-v2.jpg",
+  rami: "/images/prof-rami.jpg",
   event: "/images/evenement-gsm.jpg",
   logo: "/images/logo-gsm.png",
 } as const;
@@ -143,11 +144,17 @@ export const TEACHERS = [
     accent: "#4E0BB8",
     photo: PHOTOS.soultan,
   },
+  {
+    name: "Prof Rami",
+    role: "Éducation islamique",
+    accent: "#6711EF",
+    photo: PHOTOS.rami,
+  },
 ] as const;
 
 export const STATS = [
   { label: "Élèves accompagnés", value: 1800, suffix: "+" },
-  { label: "Professeurs experts", value: 9, suffix: "" },
+  { label: "Professeurs experts", value: 10, suffix: "" },
   { label: "Taux de réussite", value: 97, suffix: "%" },
   { label: "Années d'excellence", value: 12, suffix: "+" },
 ] as const;

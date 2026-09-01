@@ -8,6 +8,7 @@ type PortraitProps = {
   accent?: string;
   size?: "sm" | "lg";
   photo?: string;
+  imageClassName?: string;
 };
 
 function initials(name: string) {
@@ -25,7 +26,7 @@ function slug(name: string) {
   return name.replace(/[^a-zA-Z0-9]/g, "-");
 }
 
-export function Portrait({ name, accent = "#6711EF", size = "sm", photo }: PortraitProps) {
+export function Portrait({ name, accent = "#6711EF", size = "sm", photo, imageClassName }: PortraitProps) {
   const large = size === "lg";
 
   if (photo) {
@@ -37,7 +38,7 @@ export function Portrait({ name, accent = "#6711EF", size = "sm", photo }: Portr
           fill
           priority={large}
           sizes={large ? "(min-width: 1024px) 420px, 90vw" : "(min-width: 1024px) 360px, 50vw"}
-          className="object-cover object-[center_12%]"
+          className={`object-cover ${imageClassName ?? "object-[center_12%]"}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
         <div className="absolute right-4 top-4 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
@@ -87,10 +88,12 @@ export function FloatingPortrait({
   name,
   photo,
   title,
+  imageClassName,
 }: {
   name: string;
   photo?: string;
   title?: string;
+  imageClassName?: string;
 }) {
   return (
     <motion.div
@@ -101,7 +104,7 @@ export function FloatingPortrait({
       <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-brand/40 via-transparent to-accent/40 blur-2xl" />
       <div className="glass relative overflow-hidden rounded-[2rem] p-2 shadow-2xl shadow-brand/40">
         <div className="overflow-hidden rounded-[1.55rem]">
-          <Portrait name={name} size="lg" photo={photo} />
+          <Portrait name={name} size="lg" photo={photo} imageClassName={imageClassName} />
         </div>
         <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/15 p-4 text-white backdrop-blur-xl">
           <p className="text-sm font-medium text-accent">{title ?? "Directeur pédagogique"}</p>
