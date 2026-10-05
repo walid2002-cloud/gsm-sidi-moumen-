@@ -9,6 +9,7 @@
   --card: rgba(255, 255, 255, 0.72);
   --border: rgba(22, 8, 46, 0.08);
   --glow: 103, 17, 239;
+  --hero-bg: #0c0418;
 }
 
 .dark {
@@ -18,6 +19,7 @@
   --card: rgba(22, 10, 42, 0.55);
   --border: rgba(255, 255, 255, 0.08);
   --glow: 139, 71, 245;
+  --hero-bg: #0c0418;
 }
 
 @theme inline {
@@ -36,12 +38,18 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: var(--hero-bg);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+.hero-shell {
+  background: var(--hero-bg);
+  color: #fff;
 }
 
 html.darija,
@@ -419,8 +427,26 @@ html.darija .font-display {
   }
 }
 
-.skip-link:focus {
-  top: 1rem;
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 0;
+  z-index: 100;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  background: #6711ef;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(103, 17, 239, 0.35);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(1rem);
+  outline: 2px solid #ffc502;
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

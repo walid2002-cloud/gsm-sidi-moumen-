@@ -37,8 +37,11 @@ export function Navbar() {
     };
   }, [open]);
 
-  const onHero = !scrolled;
   const nextLocale = locale === "fr" ? "darija" : "fr";
+  const navGlass = scrolled
+    ? "border border-white/12 bg-[#12051f]/88 text-white"
+    : "border border-white/12 bg-[#12051f]/55 text-white";
+  const navControl = "border border-white/15 bg-white/10 text-white";
 
   return (
     <header
@@ -48,17 +51,11 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4">
         <div
-          className={`flex items-center justify-between gap-2 rounded-full px-2 py-1.5 shadow-lg backdrop-blur-2xl transition ${
-            onHero
-              ? "border border-white/12 bg-[#12051f]/55"
-              : "glass"
-          }`}
+          className={`flex items-center justify-between gap-2 rounded-full px-2 py-1.5 shadow-lg backdrop-blur-2xl transition ${navGlass}`}
         >
         <a
           href="#top"
-          className={`flex items-center gap-2 rounded-full px-3 py-1.5 ${
-            onHero ? "text-white" : ""
-          }`}
+          className="flex items-center gap-2 rounded-full px-3 py-1.5 text-white"
         >
           <BrandLogo size={36} priority className="shrink-0 ring-1 ring-white/20" />
           <span className="hidden text-sm font-semibold sm:block">{SITE.name}</span>
@@ -71,11 +68,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`rounded-full px-3 py-2 text-sm font-medium transition ${
-                onHero
-                  ? "text-white/80 hover:bg-white/10 hover:text-white"
-                  : "text-slate-600 hover:bg-violet-50 hover:text-brand dark:text-slate-300 dark:hover:bg-white/10"
-              }`}
+              className="rounded-full px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
@@ -85,9 +78,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setLocale(nextLocale)}
-            className={`rounded-full px-3 py-2 text-xs font-bold backdrop-blur-xl transition hover:scale-105 ${
-              onHero ? "border border-white/15 bg-white/10 text-white" : "glass"
-            }`}
+            className={`rounded-full px-3 py-2 text-xs font-bold backdrop-blur-xl transition hover:scale-105 ${navControl}`}
             aria-label={t.nav.lang}
           >
             {LOCALES.find((item) => item.id === nextLocale)?.short}
@@ -95,9 +86,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className={`rounded-full p-2.5 backdrop-blur-xl transition hover:scale-105 ${
-              onHero ? "border border-white/15 bg-white/10 text-white" : "glass"
-            }`}
+            className={`rounded-full p-2.5 backdrop-blur-xl transition hover:scale-105 ${navControl}`}
             aria-label={theme === "dark" ? t.nav.light : t.nav.dark}
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -112,9 +101,7 @@ export function Navbar() {
           </motion.a>
           <button
             type="button"
-            className={`rounded-full p-2.5 md:hidden ${
-              onHero ? "border border-white/15 bg-white/10 text-white" : "glass"
-            }`}
+            className={`rounded-full p-2.5 md:hidden ${navControl}`}
             aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -130,7 +117,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="glass mx-4 mt-2 rounded-3xl p-4 md:hidden"
+            className="mx-4 mt-2 rounded-3xl border border-white/12 bg-[#12051f]/95 p-4 text-white backdrop-blur-2xl md:hidden"
             aria-label={t.nav.navMobile}
           >
             {LINKS.map((link) => (
@@ -138,7 +125,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-2xl px-3 py-3 text-sm font-medium hover:bg-violet-50 dark:hover:bg-white/10"
+                className="block rounded-2xl px-3 py-3 text-sm font-medium text-white/90 hover:bg-white/10"
               >
                 {link.label}
               </a>

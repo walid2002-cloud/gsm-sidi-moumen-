@@ -46,7 +46,7 @@ export function Hero() {
   }, [mx, my, reduce]);
 
   return (
-    <section id="top" className="relative overflow-x-clip bg-[#0c0418] text-white">
+    <section id="top" className="hero-shell relative overflow-x-clip">
       <div className="relative flex min-h-[100svh] flex-col">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_28%,rgba(103,17,239,0.45),transparent_52%),linear-gradient(180deg,#16082e_0%,#0c0418_58%,#07030f_100%)]" />
 
