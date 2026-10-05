@@ -2,7 +2,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { Levels } from "@/components/Levels";
-import { Teachers } from "@/components/Teachers";
 import { Location } from "@/components/Location";
 import { FreeWeek } from "@/components/FreeWeek";
 import { Testimonials } from "@/components/Testimonials";
@@ -18,7 +17,6 @@ export default function HomePage() {
         <Hero />
         <Stats />
         <Levels />
-        <Teachers />
         <Location />
         <FreeWeek />
         <Testimonials />

@@ -335,9 +335,12 @@ export function TeachersCarousel() {
                 photo={"photo" in teacher ? teacher.photo : undefined}
                 imageClassName={
                   teacher.name === "Maître Mohssine" ||
+                  teacher.name === "Prof El Boukhari" ||
+                  teacher.name === "Prof Manoub" ||
                   teacher.name === "Prof Saouri Fouad" ||
                   teacher.name === "Prof Ayoub Ouatiki" ||
                   teacher.name === "Prof Driss" ||
+                  teacher.name === "Prof Seddik" ||
                   teacher.name === "Prof Soultan" ||
                   teacher.name === "Prof Rami"
                     ? "object-[center_28%]"

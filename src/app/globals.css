@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -341,15 +342,81 @@ html.darija .font-display {
   animation: float 6s ease-in-out infinite;
 }
 
-.skip-link {
+.hero-wall {
   position: absolute;
-  left: 1rem;
-  top: -4rem;
-  z-index: 100;
-  border-radius: 999px;
-  background: #6711ef;
-  color: white;
-  padding: 0.5rem 1rem;
+  inset: -10% -8% 6%;
+  perspective: 1600px;
+  mask-image: radial-gradient(ellipse 38% 52% at 50% 40%, transparent 0%, #000 52%);
+  -webkit-mask-image: radial-gradient(ellipse 38% 52% at 50% 40%, transparent 0%, #000 52%);
+}
+
+.hero-wall-grid {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  gap: 0.55rem;
+  transform-origin: 50% 35%;
+}
+
+.hero-wall-grid-desktop {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  transform: rotateX(16deg) scale(1.18);
+}
+
+.hero-wall-grid-mobile {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  transform: rotateX(12deg) scale(1.22);
+}
+
+.hero-screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  aspect-ratio: 3 / 4;
+  background: #1c0a31;
+  box-shadow:
+    0 0 0 1px rgba(168, 85, 247, 0.18),
+    0 10px 24px rgba(88, 20, 180, 0.28);
+}
+
+.hero-wall-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 48% 62% at 50% 40%, rgba(12, 4, 24, 0.12) 0%, transparent 46%),
+    linear-gradient(180deg, rgba(12, 4, 24, 0.2) 0%, transparent 22%, rgba(7, 3, 15, 0.55) 78%, #07030f 100%);
+}
+
+.hero-glass {
+  border-radius: 1.05rem;
+  background: rgba(12, 4, 24, 0.62);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow:
+    0 16px 40px rgba(103, 17, 239, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.hero-marquee-mask {
+  overflow: hidden;
+}
+
+.hero-marquee {
+  animation: hero-marquee 42s linear infinite;
+}
+
+.hero-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .skip-link:focus {
@@ -369,7 +436,8 @@ html.darija .font-display {
   .cta-shimmer::before,
   .cta-pulse,
   .wa-btn-ping,
-  .card-sheen::after {
+  .card-sheen::after,
+  .hero-marquee {
     animation: none !important;
   }
 }

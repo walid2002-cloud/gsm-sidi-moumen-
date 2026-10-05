@@ -76,13 +76,12 @@ export function subjectsForLevel(levelId: string): readonly Subject[] {
 
 export const PHOTOS = {
   founder: "/images/maitre-mohssine.jpg",
-  elboukhari: "/images/prof-elboukhari.jpg",
-  manoub: "/images/prof-manoub.jpg",
+  elboukhari: "/images/prof-elboukhari-v2.jpg",
+  manoub: "/images/prof-manoub-v2.jpg",
   ouatiki: "/images/prof-ayoub-ouatiki-v2.jpg",
-  haitam: "/images/prof-haitam-fanvaranta.jpg",
   driss: "/images/prof-driss-v2.jpg",
   fouad: "/images/prof-saouri-fouad-v2.jpg",
-  seddik: "/images/prof-seddik.jpg",
+  seddik: "/images/prof-seddik-v2.jpg",
   soultan: "/images/prof-soultan-v2.jpg",
   rami: "/images/prof-rami.jpg",
   event: "/images/evenement-gsm.jpg",
@@ -113,12 +112,6 @@ export const TEACHERS = [
     role: "Comptabilité · 2Bac SE/SGC",
     accent: "#6711EF",
     photo: PHOTOS.ouatiki,
-  },
-  {
-    name: "Prof Haitam Fanvaranta",
-    role: "Mathématiques",
-    accent: "#4E0BB8",
-    photo: PHOTOS.haitam,
   },
   {
     name: "Prof Driss",
@@ -154,7 +147,7 @@ export const TEACHERS = [
 
 export const STATS = [
   { label: "Élèves accompagnés", value: 1800, suffix: "+" },
-  { label: "Professeurs experts", value: 10, suffix: "" },
+  { label: "Professeurs experts", value: 9, suffix: "" },
   { label: "Taux de réussite", value: 97, suffix: "%" },
   { label: "Années d'excellence", value: 12, suffix: "+" },
 ] as const;

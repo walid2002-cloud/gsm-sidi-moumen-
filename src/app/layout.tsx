@@ -33,13 +33,24 @@ export const metadata: Metadata = {
     "semaine gratuite soutien scolaire",
     "Maître Mohssine",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon-gsm-v2.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon-gsm-v2.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: SITE.name,
     description: SITE.description,
     locale: "fr_MA",
     type: "website",
     images: [
-      { url: "/images/logo-gsm.png", alt: "Logo GSM Sidi Moumen" },
+      { url: "/logo-gsm-v2.png", alt: "Logo GSM Sidi Moumen" },
       { url: "/images/maitre-mohssine.jpg", alt: "Maître Mohssine, GSM Sidi Moumen" },
       { url: "/images/evenement-gsm.jpg", alt: "Événement GSM Sidi Moumen" },
     ],
@@ -65,12 +76,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const SITE_URL = "https://gsm-sidi-moumen.ma";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   name: SITE.legalName,
   alternateName: SITE.name,
   description: SITE.description,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-gsm-v2.png`,
+  image: `${SITE_URL}/logo-gsm-v2.png`,
   telephone: SITE.phoneTel,
   address: {
     "@type": "PostalAddress",
@@ -79,6 +95,13 @@ const jsonLd = {
     addressCountry: "MA",
   },
   sameAs: [SITE.instagramUrl],
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.name,
+  url: SITE_URL,
 };
 
 const faqLd = {
@@ -108,6 +131,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
         />
         <script
           type="application/ld+json"

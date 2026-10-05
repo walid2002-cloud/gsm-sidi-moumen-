@@ -17,7 +17,6 @@ export function Navbar() {
 
   const LINKS = [
     { href: "#niveaux", label: t.nav.levels },
-    { href: "#equipe", label: t.nav.team },
     { href: "#localisation", label: t.nav.location },
     { href: "#avis", label: t.nav.reviews },
     { href: "#faq", label: t.nav.faq },
@@ -47,20 +46,25 @@ export function Navbar() {
         scrolled ? "py-2" : "py-4"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4">
+      <div className="mx-auto max-w-7xl px-4">
+        <div
+          className={`flex items-center justify-between gap-2 rounded-full px-2 py-1.5 shadow-lg backdrop-blur-2xl transition ${
+            onHero
+              ? "border border-white/12 bg-[#12051f]/55"
+              : "glass"
+          }`}
+        >
         <a
           href="#top"
-          className={`flex items-center gap-2 rounded-full px-4 py-2 backdrop-blur-xl ${
-            onHero ? "border border-white/15 bg-white/10 text-white" : "glass"
+          className={`flex items-center gap-2 rounded-full px-3 py-1.5 ${
+            onHero ? "text-white" : ""
           }`}
         >
           <BrandLogo size={36} priority className="shrink-0 ring-1 ring-white/20" />
           <span className="hidden text-sm font-semibold sm:block">{SITE.name}</span>
         </a>
         <nav
-          className={`hidden items-center gap-1 rounded-full px-2 py-1 backdrop-blur-xl md:flex ${
-            onHero ? "border border-white/15 bg-white/10" : "glass"
-          }`}
+          className="hidden items-center gap-1 md:flex"
           aria-label={t.nav.navLabel}
         >
           {LINKS.map((link) => (
@@ -117,6 +121,7 @@ export function Navbar() {
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
+        </div>
         </div>
       </div>
       <AnimatePresence>

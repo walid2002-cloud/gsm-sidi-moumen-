@@ -1,0 +1,35 @@
+{
+  "name": "GSM Sidi Moumen",
+  "short_name": "GSM",
+  "description": "Accompagner chaque élève vers l'excellence grâce à une équipe de professeurs expérimentés.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6711EF",
+  "theme_color": "#6711EF",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

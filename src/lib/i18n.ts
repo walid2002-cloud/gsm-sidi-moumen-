@@ -26,11 +26,21 @@ const fr = {
   hero: {
     badge: "Groupe Superprof Mohssine",
     title: "Centre N°1 de soutien scolaire à Sidi Moumen",
+    titleLine1: "Centre N°1 de soutien scolaire",
+    titleLine2: "à Sidi Moumen",
     subtitle:
       "Accompagner chaque élève vers l'excellence grâce à une équipe de professeurs expérimentés.",
     ctaFormations: "Découvrir nos formations",
     ctaWeek: "Réserver ma semaine gratuite",
     director: "Directeur pédagogique",
+    cardTeamTitle: "Comment on travaille",
+    cardTeamText: "Cours en petit groupe",
+    cardTeamHint: "Suivi régulier, matières ciblées et feedback sur les progrès.",
+    cardLevelsTitle: "Élèves accompagnés",
+    cardLevelsText: "Tous les niveaux",
+    cardLevelsHint: "Primaire · Collège · Lycée — à Sidi Moumen",
+    cardFollowTitle: "Suivi pédagogique",
+    cardFollowText: "Un accompagnement structuré",
   },
   stats: {
     kicker: "Une communauté",
@@ -51,7 +61,7 @@ const fr = {
   teachers: {
     kicker: "Excellence",
     title: "Notre équipe pédagogique",
-    subtitle: "Des professeurs expérimentés, engagés à révéler le potentiel de chaque élève.",
+    subtitle: "Portraits, matières et parcours de chaque professeur — au-delà de l’aperçu du hero.",
   },
   freeWeek: {
     kicker: "Essai sans engagement",
@@ -160,7 +170,6 @@ const fr = {
     "Prof El Boukhari": "SVT",
     "Prof Manoub": "Mathématiques",
     "Prof Ayoub Ouatiki": "Comptabilité · 2Bac SE/SGC",
-    "Prof Haitam Fanvaranta": "Mathématiques",
     "Prof Driss": "Économie générale",
     "Prof Saouri Fouad": "Organisation et Comptabilité",
     "Prof Seddik": "SVT",
@@ -210,10 +219,20 @@ const darija = {
   hero: {
     badge: "Groupe Superprof Mohssine",
     title: "المركز رقم 1 ديال الدعم المدرسي ف سيدي مومن",
+    titleLine1: "المركز رقم 1 ديال الدعم المدرسي",
+    titleLine2: "ف سيدي مومن",
     subtitle: "كنرافقو كل تلميذ نحو التفوق مع أساتذة مجرّبين وكيعرفو خدمتهم.",
     ctaFormations: "شوف التكوينات ديالنا",
     ctaWeek: "حجز السيمانة المجانية",
     director: "المدير التربوي",
+    cardTeamTitle: "كيفاش كنخدمو",
+    cardTeamText: "دروس ف مجموعات صغيرة",
+    cardTeamHint: "تتبع منتظم، مواد مركّزة ومتابعة ديال التقدم.",
+    cardLevelsTitle: "التلاميذ اللي رافقناهم",
+    cardLevelsText: "جميع المستويات",
+    cardLevelsHint: "الابتدائي · الإعدادي · الثانوي — ف سيدي مومن",
+    cardFollowTitle: "تتبع تربوي",
+    cardFollowText: "مواكبة منظمة وواضحة",
   },
   stats: {
     kicker: "مجتمع واحد",
@@ -234,7 +253,7 @@ const darija = {
   teachers: {
     kicker: "التميز",
     title: "الفريق التربوي ديالنا",
-    subtitle: "أساتذة مجرّبين، ملتزمين يطلعو الإمكانيات ديال كل تلميذ.",
+    subtitle: "صور، المواد، ومسار كل أستاذ — أكثر تفصيل من اللمحة ديال الأعلى.",
   },
   freeWeek: {
     kicker: "تجربة بلا التزام",
@@ -341,7 +360,6 @@ const darija = {
     "Prof El Boukhari": "SVT",
     "Prof Manoub": "الرياضيات",
     "Prof Ayoub Ouatiki": "المحاسبة · 2Bac SE/SGC",
-    "Prof Haitam Fanvaranta": "الرياضيات",
     "Prof Driss": "الاقتصاد العام",
     "Prof Saouri Fouad": "التنظيم والمحاسبة",
     "Prof Seddik": "SVT",
