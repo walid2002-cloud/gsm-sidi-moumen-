@@ -73,7 +73,7 @@ export function Hero() {
         </motion.div>
 
         <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pt-24 sm:pt-28">
-          <div className="relative mx-auto flex w-full max-w-5xl flex-1 items-end justify-center">
+          <div className="relative mx-auto flex w-full max-w-5xl flex-1 items-end justify-center overflow-visible">
             <motion.aside
               initial={reduce ? false : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
@@ -106,15 +106,15 @@ export function Hero() {
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative z-10 -mb-6 h-[52vh] w-[min(94vw,600px)] sm:h-[58vh] lg:-mb-10 lg:h-[68vh]"
+              className="relative z-10 -mb-4 h-[48vh] w-[min(100%,720px)] overflow-visible px-2 sm:h-[54vh] sm:px-4 lg:-mb-8 lg:h-[62vh]"
             >
               <Image
-                src="/images/mohssine-hero-transparent.png"
+                src="/images/mohssine-hero-v2.png"
                 alt="Maître Mohssine"
                 fill
                 priority
-                sizes="(min-width: 1024px) 600px, 94vw"
-                className="object-contain object-bottom [filter:drop-shadow(0_18px_28px_rgba(12,4,24,0.35))]"
+                sizes="(min-width: 1024px) 720px, 100vw"
+                className="object-contain object-[center_bottom] [filter:drop-shadow(0_16px_24px_rgba(12,4,24,0.32))]"
               />
             </motion.div>
           </div>
